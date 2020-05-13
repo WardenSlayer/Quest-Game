@@ -131,7 +131,7 @@ class amour:
     def __init__(self, t = "Amour", y= 'amour', bp = 10, d = 1):
         self.title = t
         self.type = y
-        self.battle_points = bp
+        self.stats = bp
         self.bid = d
 
 for i in range(1,9):
