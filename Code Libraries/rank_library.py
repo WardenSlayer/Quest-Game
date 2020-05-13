@@ -5,7 +5,7 @@ Created on Sat Apr 25 21:37:31 2020
 @author: Ben Loll
 
 Questar Document 4
-    
+
 This program is intended to be imported by other files
 
 Rank Library
