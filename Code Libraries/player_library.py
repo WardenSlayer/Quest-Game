@@ -4,16 +4,20 @@ Created on Fri Oct 18 21:37:31 2019
 
 @author: Ben Loll
 
+Questar Document 3
+
+This program is intended to be imported by other files
+
 Player Library
 """
 import random
-titles = ["Waldo the Walrus", "Greg the Giraffe", 
+titles = ["Waldo the Walrus", "Greg the Giraffe",
           "Arthur the Aardvark", "Leroy the Lemming"]
 
 def initialize_Player(num):
     #Creates a new player
     #Arg is a player number
-    global titles 
+    global titles
     name = random.choice(titles)
     titles.remove(name)
     pl = player(num,name)
@@ -43,7 +47,7 @@ class player:
         self.excalibur = t
 
 def levelUp(player,shields):
-    #Awards a player with shields and checks for a level up or win 
+    #Awards a player with shields and checks for a level up or win
     #Args player number and num shields won
     rank = player.rank
     currentShields = player.shields
@@ -52,28 +56,26 @@ def levelUp(player,shields):
     newRank = ""
     if rank == 'Squire' and netShields < 5:
         newRank = rank
-    elif rank == 'Squire' and netShields >= 5: 
+    elif rank == 'Squire' and netShields >= 5:
         newRank = 'Knight'
         netShields = netShields-5
-    elif rank == 'Knight' and netShields < 7: 
+    elif rank == 'Knight' and netShields < 7:
         newRank = 'Knight'
-    elif rank == 'Knight' and netShields >= 7: 
+    elif rank == 'Knight' and netShields >= 7:
         newRank = 'Champion'
         netShields = netShields-7
-    elif rank == 'Champion' and netShields < 10: 
+    elif rank == 'Champion' and netShields < 10:
         newRank = 'Champion'
-    elif rank == 'Champion' and netShields >= 10: 
+    elif rank == 'Champion' and netShields >= 10:
         newRank = 'Knight of the Round Table'
         victory = 'true'
-    player.rank = newRank                 #j# does this makeline 72 always true or is player.rank, rank, and newRank all seperate still?
+    player.rank = newRank
     player.shields = netShields
     #Set the victory flag to end game
     player.victory = victory
-    if rank != newRank and player.victory != 'true':                           #j# rank set to newRank on line 68???
+    if rank != newRank and player.victory != 'true':
         print(player.name+" has leveled up to "+player.rank)
         #Check for a double level up (rare but best to account for it)
         levelUp(player,netShields)
-    #return unimportant                                                        #j# while in development, print("levelUp successful") ??
-
-
-
+    #return unimportant
+    print("levelUp successful")
